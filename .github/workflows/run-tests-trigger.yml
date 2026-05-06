@@ -6,11 +6,15 @@ on:
 
 jobs:
   trigger:
-    if: |
-      github.event.issue.pull_request &&
-      github.event.comment.body == '/run-tests' &&
+    if: >-
+      github.event.issue.pull_request != null &&
+      startsWith(github.event.comment.body, '/run-tests') &&
       contains(fromJson('["SandeepaHWP"]'), github.event.comment.user.login)
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      actions: write
+      pull-requests: read
     steps:
       - name: Acknowledge comment
         uses: actions/github-script@v7
