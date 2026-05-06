@@ -72,3 +72,4 @@ result = await my_function("world");
 - **`styles/global.css`** — design tokens (`--primary`, `--background`, etc.) and utility classes
 - **`main.jac`** — registers server symbols and mounts the client app
 testing comment based CI trigger
+new commit to test label removal
