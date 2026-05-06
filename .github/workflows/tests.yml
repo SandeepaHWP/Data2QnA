@@ -1,10 +1,12 @@
 name: Tests
 
 on:
-  workflow_dispatch:
+  pull_request:
+    types: [labeled]
 
 jobs:
   test-one:
+    if: github.event.label.name == 'run-tests'
     runs-on: ubuntu-latest
     steps:
       - name: Dummy test one
@@ -14,6 +16,7 @@ jobs:
           echo "Test one passed"
 
   test-two:
+    if: github.event.label.name == 'run-tests'
     runs-on: ubuntu-latest
     steps:
       - name: Dummy test two
@@ -23,6 +26,7 @@ jobs:
           echo "Test two passed"
 
   test-three:
+    if: github.event.label.name == 'run-tests'
     runs-on: ubuntu-latest
     steps:
       - name: Dummy test three
