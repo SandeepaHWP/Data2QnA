@@ -71,3 +71,21 @@ result = await my_function("world");
 - **`hooks/*.cl.jac`** — shared state and API logic consumed by components
 - **`styles/global.css`** — design tokens (`--primary`, `--background`, etc.) and utility classes
 - **`main.jac`** — registers server symbols and mounts the client app
+
+
+just duplication for test in jac builder 
+
+### Add a new page
+
+1. Create `pages/MyPage.cl.jac` with `def:pub page() -> JsxElement { ... }`
+2. Add a route in `index.cl.jac`
+
+## Architecture
+
+- **`service/*.jac`** — server-side logic; `def:priv` functions require a valid JWT
+- **`pages/*.cl.jac`** — full-page React components, one per route
+- **`components/*.cl.jac`** — reusable UI pieces
+- **`hooks/*.cl.jac`** — shared state and API logic consumed by components
+- **`styles/global.css`** — design tokens (`--primary`, `--background`, etc.) and utility classes
+- **`main.jac`** — registers server symbols and mounts the client app
+
